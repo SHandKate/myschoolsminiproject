@@ -1,0 +1,29 @@
+#include <iostream>
+int main()
+{
+	float temp_height = 10;//meters
+	float test_temp_height = temp_height;//meters
+	float acceleration = 10;//meters^2/seconds
+	float now_time = 0;//seconds
+	float test_now_time = now_time;//seconds
+	float step_time = 0.0001;//seconds
+	float mass=1;//kilos
+	for(int i =0;i<10000000000000;i++)
+	{
+		std::cout << temp_height<<'\n';
+	test:
+		test_now_time = now_time;
+		test_now_time = now_time + step_time;
+		test_temp_height = temp_height - acceleration * test_now_time*test_now_time / 2;
+		if (test_temp_height >= 0)
+		{
+			temp_height = test_temp_height;
+			now_time = test_now_time;
+		}
+		else
+		{
+			step_time = step_time / 10;
+			goto test;
+		}
+	}
+}
