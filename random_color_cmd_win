@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	while(1)
+	{
+		char color[9] = "color  ";
+		char color_rand[16][2] = { "1", "2", "3","4","5","6","7","8","9","0", "A", "B", "C","D","E","F" };
+		int color_num1 = rand() % 16;
+		int color_num2 = rand() % 16;
+		char color_val1 = color_rand[color_num1][0];
+		char color_val2 = color_rand[color_num2][0];
+		color[6] = color_val1;
+		color[7] = color_val2;
+		system(color);
+	}
+}
