@@ -4,7 +4,7 @@
 #include<vector>
 using namespace std;
 int main() {
-	const char* FName = "V:\\test.txt";
+	const char* FName = "V:\\test.txt";//you must have disk V!:С but i want fix this thing
 	ifstream ifs(FName);
 	string s;
 	vector <string> s_set;
