@@ -3,6 +3,7 @@
 using namespace std;
 int main()
 {
+	system("title LOL");
 	while(1)
 	{
 		char color[9] = "color  ";
