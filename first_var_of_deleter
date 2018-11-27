@@ -1,0 +1,41 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+#include<vector>
+using namespace std;
+int main() {
+	const char* FName = "V:\\test.txt";
+	ifstream ifs(FName);
+	string s;
+	vector <string> s_set;
+	while (!ifs.eof())
+	{
+		getline(ifs, s);
+		s_set.push_back(s);
+	}
+	ifs.close();
+	remove(FName);
+	for (int i = 0; i < 8; i++)
+	{
+		int size_block = (s_set.size() - s_set.size() % 8) / 8;
+		if (s_set.size() % 8)
+			int size_finish_block = s_set.size() % 8;
+		char addres[8][9] = { "V:\\0.txt" ,"V:\\1.txt" ,"V:\\2.txt" ,"V:\\3.txt" ,"V:\\4.txt" ,"V:\\5.txt" ,"V:\\6.txt","V:\\7.txt" };
+		ofstream ofs(addres[i]); 
+		if (i < 7)
+		{
+			for (int j = i * size_block; j < (i + 1)*size_block; j++)
+			{
+				ofs << s_set[j]<<'\n';
+			}
+		}
+		else
+		{
+			for (int j = i * size_block; j < (i + 1)*size_block+s_set.size()%8; j++)
+			{
+				ofs << s_set[j] << '\n';
+			}
+		}
+		ofs.close();
+	}
+}
